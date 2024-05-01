@@ -157,6 +157,75 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Create Subject",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"subject\": \"Mathematics\",\r\n    \"semester\": \"Spring 2024\",\r\n    \"description\": \"Advanced mathematics course covering calculus and linear algebra.\",\r\n    \"course\": \"Mechanical Engineering\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/subject",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"subject"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch subject by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/subject/0d0340b3-caeb-4790-9438-82e21119c11f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"subject",
+						"0d0340b3-caeb-4790-9438-82e21119c11f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch subject by course",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/subject/course/Mechanical%20Engineering",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"subject",
+						"course",
+						"Mechanical%20Engineering"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
