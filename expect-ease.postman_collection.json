@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "114ab161-54e1-453b-81c1-9af105e81ee6",
+		"name": "Student",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31100229"
+	},
+	"item": [
+		{
+			"name": "Sign Student",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"Student@gmail.com\",\r\n    \"password\": \"Student@123\",\r\n    \"first_name\": \"Student_first_name\",\r\n    \"last_name\": \"Student_last_name\",\r\n    \"ph_number\": \"Student_ph_number\",\r\n    \"type\": \"Student\",\r\n    \"course\" : \"Mechanical Engineering\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login Student",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var firstRecordId = jsonData.id;\r",
+							"pm.environment.set(\"userId\", firstRecordId);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"Student@gmail.com\",\r\n    \"password\": \"Student@123\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/login/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"login",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign Faculty",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"Faculty@gmail.com\",\r\n    \"password\": \"Faculty@123\",\r\n    \"first_name\": \"Faculty_first_name\",\r\n    \"last_name\": \"Faculty_last_name\",\r\n    \"ph_number\": \"Faculty_ph_number\",\r\n    \"type\": \"Faculty\",\r\n    \"course\" : \"Mechanical Engineering\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login Faculty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var firstRecordId = jsonData.id;\r",
+							"pm.environment.set(\"userId\", firstRecordId);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"Faculty@gmail.com\",\r\n    \"password\": \"Faculty@123\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/login/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"login",
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
