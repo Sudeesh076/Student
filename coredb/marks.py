@@ -1,0 +1,56 @@
+import sqlite3
+import uuid
+from coredb.user import fetch_user_by_id
+
+def add_marks(marks_data):
+    db = sqlite3.connect("student.db")
+    cursor = db.cursor()
+
+    for mark in marks_data:
+        mark_id = str(uuid.uuid4())
+        cursor.execute('''INSERT INTO marks (id, user_id, subject, grades)
+                          VALUES (?, ?, ?, ?)''',
+                       (mark_id, mark['user_id'], mark['subject'], mark['grades']))
+    db.commit()
+    db.close()
+
+def fetch_marks_by_user_id(user_id):
+    db = sqlite3.connect("student.db")
+    cursor = db.cursor()
+    cursor.execute('''SELECT * FROM marks WHERE user_id = ?''', (user_id,))
+    marks = cursor.fetchall()
+    db.close()
+
+    # Convert fetched data into the specified format
+    formatted_marks = []
+    for mark in marks:
+        mark_dict = {
+            "id": mark[0],
+            "user_id": mark[1],
+            "subject": mark[2],
+            "grades": mark[3]
+        }
+        formatted_marks.append(mark_dict)
+
+    return formatted_marks
+
+def fetch_marks_by_subject(subject):
+    db = sqlite3.connect("student.db")
+    cursor = db.cursor()
+    cursor.execute('''SELECT * FROM marks WHERE subject = ?''', (subject,))
+    marks = cursor.fetchall()
+    db.close()
+
+    # Convert fetched data into the specified format
+    formatted_marks = []
+    for mark in marks:
+        mark_dict = {
+            "id": mark[0],
+            "user": fetch_user_by_id(mark[1]),
+            "subject": mark[2],
+            "grades": mark[3]
+        }
+        formatted_marks.append(mark_dict)
+
+    return formatted_marks
+

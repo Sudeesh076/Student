@@ -165,7 +165,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"subject\": \"Mathematics\",\r\n    \"semester\": \"Spring 2024\",\r\n    \"description\": \"Advanced mathematics course covering calculus and linear algebra.\",\r\n    \"course\": \"Mechanical Engineering\"\r\n}",
+					"raw": "{\r\n    \"subject\": \"Science\",\r\n    \"semester\": \"Spring 2024\",\r\n    \"description\": \"Advanced mathematics course covering calculus and linear algebra.\",\r\n    \"course\": \"Mechanical Engineering\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -222,6 +222,79 @@
 						"subject",
 						"course",
 						"Mechanical%20Engineering"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Marks",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"user_id\": \"ecd047d1-5a0e-4a90-b2aa-cc225f86f78b\",\r\n        \"subject\": \"Science\",\r\n        \"grades\": \"5\"\r\n    },\r\n    {\r\n        \"user_id\": \"ecd047d1-5a0e-4a90-b2aa-cc225f86f78b\",\r\n        \"subject\": \"Mathematics\",\r\n        \"grades\": \"4\"\r\n    }\r\n]\r\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/marks",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"marks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch marks by userid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/marks/ecd047d1-5a0e-4a90-b2aa-cc225f86f78b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"marks",
+						"ecd047d1-5a0e-4a90-b2aa-cc225f86f78b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch marks by subject",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/marks/subject/Mathematics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"marks",
+						"subject",
+						"Mathematics"
 					]
 				}
 			},

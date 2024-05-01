@@ -7,6 +7,7 @@ def startDb():
     cursor.execute("PRAGMA foreign_keys = ON;")
     create_users_table(cursor)
     create_subject_table(cursor)
+    create_marks_table(cursor)
     db.commit()
     db.close()
 
@@ -42,4 +43,33 @@ def create_subject_table(cursor):
         semester TEXT,
         Description TEXT,
         course TEXT
+    )''')
+
+def create_subject_table(cursor):
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='subject'")
+    table_exists = cursor.fetchone()
+
+    if table_exists:
+        cursor.execute("DROP TABLE subject")
+
+    cursor.execute('''CREATE TABLE subject (
+        id TEXT PRIMARY KEY,
+        subject TEXT,
+        semester TEXT,
+        Description TEXT,
+        course TEXT
+    )''')
+
+def create_marks_table(cursor):
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='marks'")
+    table_exists = cursor.fetchone()
+
+    if table_exists:
+        cursor.execute("DROP TABLE marks")
+
+    cursor.execute('''CREATE TABLE marks (
+        id TEXT PRIMARY KEY,
+        user_id TEXT,
+        subject TEXT,
+        grades  TEXT
     )''')

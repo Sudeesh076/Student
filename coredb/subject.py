@@ -1,17 +1,6 @@
 import sqlite3
 import uuid
 
-# def add_subject(data):
-#     db = sqlite3.connect("student.db")
-#     cursor = db.cursor()
-#     subject_id = str(uuid.uuid4())
-#
-#     cursor.execute('''INSERT INTO subject (id, subject, semester, description, course)
-#                       VALUES (?, ?, ?, ?, ?)''',
-#                    (subject_id, data['subject'], data['semester'], data['description'], data['course']))
-#     db.commit()
-#     db.close()
-
 def add_subject(data):
     db = sqlite3.connect("student.db")
     cursor = db.cursor()
