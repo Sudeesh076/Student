@@ -1,6 +1,7 @@
 import sqlite3
 import uuid
-from coredb.user import fetch_user_by_id
+from coredb.user import fetch_user_by_id , fetch_users_by_course
+from coredb.subject import fetch_subject_by_id
 
 def add_marks(marks_data):
     db = sqlite3.connect("student.db")
@@ -53,4 +54,36 @@ def fetch_marks_by_subject(subject):
         formatted_marks.append(mark_dict)
 
     return formatted_marks
+
+
+def fetch_pending_Marks_User(subject_id):
+
+    course = fetch_subject_by_id(subject_id)
+
+    all_users = fetch_users_by_course(course["course"])
+
+    all_users = [user['id'] for user in all_users]
+
+    grade_user_id = fetch_marks_by_subject(course["subject"])
+
+    marked_users = [user['user']["id"] for user in grade_user_id]
+
+    result = [x for x in all_users if x not in marked_users]
+
+    user_records = []
+
+    for user_id in result:
+        user_record = fetch_user_by_id(user_id)
+        user_records.append(user_record)
+
+    return user_records
+
+
+
+
+
+
+
+
+
 

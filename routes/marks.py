@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from coredb.marks import add_marks, fetch_marks_by_user_id, fetch_marks_by_subject
+from coredb.marks import add_marks, fetch_marks_by_user_id, fetch_marks_by_subject ,fetch_pending_Marks_User
 
 marks = Blueprint('marks', __name__)
 
@@ -37,3 +37,13 @@ def get_marks_by_subject(subject):
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@marks.route('/marks/pending/<subject_id>', methods=['GET'])
+def get_pending_marks_by_subject(subject_id):
+    try:
+        users = fetch_pending_Marks_User(subject_id)
+        if users:
+            return jsonify({"users": users}), 200
+        else:
+            return jsonify({"message": "No users found for the subject"}), 404
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500

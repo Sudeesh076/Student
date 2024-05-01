@@ -65,7 +65,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"Student@gmail.com\",\r\n    \"password\": \"Student@123\"\r\n}"
+					"raw": "{\r\n    \"email\": \"Student3@gmail.com\",\r\n    \"password\": \"Student@123\"\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:5000/login/user",
@@ -165,7 +165,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"subject\": \"Science\",\r\n    \"semester\": \"Spring 2024\",\r\n    \"description\": \"Advanced mathematics course covering calculus and linear algebra.\",\r\n    \"course\": \"Mechanical Engineering\"\r\n}",
+					"raw": "{\r\n    \"subject\": \"Mathematics\",\r\n    \"semester\": \"Spring 2024\",\r\n    \"description\": \"Advanced mathematics course covering calculus and linear algebra.\",\r\n    \"course\": \"Mechanical Engineering\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -192,7 +192,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/subject/0d0340b3-caeb-4790-9438-82e21119c11f",
+					"raw": "http://localhost:5000/subject/c08f47b4-454f-4ea6-93de-9f88520e852b",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -200,7 +200,7 @@
 					"port": "5000",
 					"path": [
 						"subject",
-						"0d0340b3-caeb-4790-9438-82e21119c11f"
+						"c08f47b4-454f-4ea6-93de-9f88520e852b"
 					]
 				}
 			},
@@ -240,7 +240,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n    {\r\n        \"user_id\": \"ecd047d1-5a0e-4a90-b2aa-cc225f86f78b\",\r\n        \"subject\": \"Science\",\r\n        \"grades\": \"5\"\r\n    },\r\n    {\r\n        \"user_id\": \"ecd047d1-5a0e-4a90-b2aa-cc225f86f78b\",\r\n        \"subject\": \"Mathematics\",\r\n        \"grades\": \"4\"\r\n    }\r\n]\r\n"
+					"raw": "[\r\n    {\r\n        \"user_id\": \"d6edbe6e-4455-4afa-a4c1-2b0c3fdbf08d\",\r\n        \"subject\": \"Science\",\r\n        \"grades\": \"5\"\r\n    },\r\n    {\r\n        \"user_id\": \"8734019b-17d9-4288-a2b9-64971223046f\",\r\n        \"subject\": \"Mathematics\",\r\n        \"grades\": \"4\"\r\n    }\r\n]\r\n"
 				},
 				"url": {
 					"raw": "http://127.0.0.1:5000/marks",
@@ -265,7 +265,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/marks/ecd047d1-5a0e-4a90-b2aa-cc225f86f78b",
+					"raw": "http://localhost:5000/marks/a734ed7b-e0da-45cd-b017-32eac5c5b64d",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -273,7 +273,7 @@
 					"port": "5000",
 					"path": [
 						"marks",
-						"ecd047d1-5a0e-4a90-b2aa-cc225f86f78b"
+						"a734ed7b-e0da-45cd-b017-32eac5c5b64d"
 					]
 				}
 			},
@@ -295,6 +295,40 @@
 						"marks",
 						"subject",
 						"Mathematics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch pending marks users by subject id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000//marks/pending/9ed31e72-f0f3-4e2e-9c59-f373594c9bc0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"",
+						"marks",
+						"pending",
+						"9ed31e72-f0f3-4e2e-9c59-f373594c9bc0"
 					]
 				}
 			},

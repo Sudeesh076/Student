@@ -64,3 +64,30 @@ def user_exists(email, ph_number):
     db.close()
 
     return count > 0
+
+def fetch_users_by_course(course):
+    db = sqlite3.connect("student.db")
+    cursor = db.cursor()
+
+    cursor.execute("SELECT id, first_name, last_name, ph_number, email, type, course FROM users WHERE course = ?", (course,))
+    users = cursor.fetchall()
+
+    db.close()
+
+    if not users:
+        raise ValueError(f"No users found for course {course}.")
+
+    users_list = []
+    for user in users:
+        user_dict = {
+            "id": user[0],
+            "first_name": user[1],
+            "last_name": user[2],
+            "ph_number": user[3],
+            "email": user[4],
+            "type": user[5],
+            "course": user[6],
+        }
+        users_list.append(user_dict)
+
+    return users_list
