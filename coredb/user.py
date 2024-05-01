@@ -19,7 +19,7 @@ def fetch_user_by_id(user_id):
     db = sqlite3.connect("student.db")
     cursor = db.cursor()
 
-    cursor.execute("SELECT id, first_name, last_name, ph_number,type, course FROM users WHERE id = ?", (user_id,))
+    cursor.execute("SELECT id, first_name, last_name, ph_number,email,type, course FROM users WHERE id = ?", (user_id,))
     user = cursor.fetchone()
 
     db.close()
@@ -32,8 +32,9 @@ def fetch_user_by_id(user_id):
         "first_name": user[1],
         "last_name": user[2],
         "ph_number": user[3],
-        "type" : user[4],
-        "course": user[5],
+        "email" : user[4],
+        "type" : user[5],
+        "course": user[6],
     }
 
     return user_dict
